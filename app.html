@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Riddle Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    h1 {
+      color: #007acc;
+    }
+
+    #riddle-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007acc;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f99;
+    }
+
+    #answer {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #007a33;
+    }
+
+    .back-link {
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Riddle Generator</h1>
+  <div id="riddle-box">
+    <p id="riddle">Click "New Riddle" to get started!</p>
+    <p id="answer" style="display:none;"></p>
+    <button onclick="newRiddle()">New Riddle</button>
+    <button onclick="showAnswer()">Show Answer</button>
+  </div>
+
+  <div class="back-link">
+    <a href="scratch.html">Back to Hobbies</a>
+
+  </div>
+
+  <script>
+    const riddles = [
+      { question: "What has to be broken before you can use it?", answer: "An egg." },
+      { question: "I’m tall when I’m young, and I’m short when I’m old. What am I?", answer: "A candle." },
+      { question: "What month of the year has 28 days?", answer: "All of them!" },
+      { question: "What is full of holes but still holds water?", answer: "A sponge." },
+      { question: "What question can you never answer yes to?", answer: "Are you asleep yet?" },
+      { question: "What gets wet while drying?", answer: "A towel." },
+      { question: "I have branches, but no fruit, trunk or leaves. What am I?", answer: "A bank." },
+    ];
+
+    let currentRiddle = {};
+
+    function newRiddle() {
+      const randomIndex = Math.floor(Math.random() * riddles.length);
+      currentRiddle = riddles[randomIndex];
+      document.getElementById("riddle").innerText = currentRiddle.question;
+      document.getElementById("answer").style.display = "none";
+    }
+
+    function showAnswer() {
+      document.getElementById("answer").innerText = currentRiddle.answer;
+      document.getElementById("answer").style.display = "block";
+    }
+  </script>
+
+<div style="margin-top: 40px; text-align: center;">
+    <h2>Interactive Web App</h2>
+    <p>Try My Riddle Generator App</p>
+    <a href="app.html" style="font-size: 20px; font-weight: bold; color: darkblue;">
+        👉 Click here to launch the Random Riddle Generator
+    </a>
+</div>
+
+</body>
+</html>
+
